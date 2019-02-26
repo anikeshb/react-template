@@ -1,0 +1,34 @@
+@mixin transition($property) {
+  -webkit-transition: $property .5s;
+  -ms-transition: $property .5s;
+  -o-transition: $property .5s;
+  transition: $property .5s;
+ }
+ 
+ @mixin  transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+ }
+ 
+ @mixin breakpoint($device) {
+  @if($device == 'pc') {
+         @media screen and (max-width: $pc){ @content; }
+     } @else if($device == 'small-pc') {
+         @media screen and (max-width: $small-pc){ @content; }
+     } @else if($device == 'ipadland') {
+         @media screen and (max-width: $ipadland){ @content; }
+     } @else if($device == 'ipad') {
+         @media screen and (max-width: $ipad){ @content; }
+  } @else if($device == 'ipadport') {
+         @media screen and (max-width: $ipadport){ @content; }
+     }
+ }
+ 
+ @mixin vendor($property, $content) {
+   -webkit-#{$property}: $content;
+   -moz-#{$property}: $content;
+   -ms-#{$property}: $content;
+   -o-#{$property}: $content;
+   #{$property}: $content;
+ }
